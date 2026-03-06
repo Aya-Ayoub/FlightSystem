@@ -1,33 +1,29 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import BookingHistory from "./pages/BookingHistory";
-import ProtectedRoute from "./components/ProtectedRoute";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Flights from "./pages/Flights";
+import Bookings from "./pages/Bookings";
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
 
-        <Route
-          path="/bookings"
-          element={
-            <ProtectedRoute>
-              <BookingHistory />
-            </ProtectedRoute>
-          }
-        />
+  return (
+
+    <BrowserRouter>
+
+      <Navbar />
+
+      <Routes>
+
+        <Route path="/" element={<Flights />} />
+
+        <Route path="/bookings" element={<Bookings />} />
+
       </Routes>
-    </Router>
+
+    </BrowserRouter>
+
   );
+
 }
 
 export default App;
